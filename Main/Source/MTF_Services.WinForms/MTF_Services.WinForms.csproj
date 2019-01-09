@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7900E002-4B6B-4320-9DF1-E81B33E53FCF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MTF_Services.WinForms</RootNamespace>
+    <AssemblyName>MTF_Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependecies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependecies\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CostIdleParams.cs" />
+    <Compile Include="Data\Context.cs" />
+    <Compile Include="Data\ServiceIdleParams.cs" />
+    <Compile Include="Extentions\ReportType.cs" />
+    <Compile Include="Extentions\FormMode.cs" />
+    <Compile Include="Extentions\SANPartSelectionMode.cs" />
+    <Compile Include="Extentions\ScheduleEditType.cs" />
+    <Compile Include="Extentions\ScheduleItemsShowMode.cs" />
+    <Compile Include="Extentions\ScheduleItemsTimeFormat.cs" />
+    <Compile Include="Extentions\ServerPartSelectionMode.cs" />
+    <Compile Include="Forms\Director\DirectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Director\DirectorForm.Designer.cs">
+      <DependentUpon>DirectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Director\EditIdleItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Director\EditIdleItemForm.Designer.cs">
+      <DependentUpon>EditIdleItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Director\ServiceRequestTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Director\ServiceRequestTreatment.Designer.cs">
+      <DependentUpon>ServiceRequestTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Director\StaffDistributonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Director\StaffDistributonForm.Designer.cs">
+      <DependentUpon>StaffDistributonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employee\SubscribeServicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employee\SubscribeServicesForm.Designer.cs">
+      <DependentUpon>SubscribeServicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingForm.Designer.cs">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\EditScheduleItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\EditScheduleItem.Designer.cs">
+      <DependentUpon>EditScheduleItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\EquipmentIdleMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\EquipmentIdleMenu.Designer.cs">
+      <DependentUpon>EquipmentIdleMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\PlanningSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\PlanningSchedule.Designer.cs">
+      <DependentUpon>PlanningSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\RegisterNewIdle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\EquipmentIdle\RegisterNewIdle.Designer.cs">
+      <DependentUpon>RegisterNewIdle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditRAMTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditRAMTypeForm.Designer.cs">
+      <DependentUpon>EditRAMTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditStorageInterfaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditStorageInterfaceForm.Designer.cs">
+      <DependentUpon>EditStorageInterfaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditCPUForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditCPUForm.Designer.cs">
+      <DependentUpon>EditCPUForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditCPUSocketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditCPUSocketForm.Designer.cs">
+      <DependentUpon>EditCPUSocketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\EditInfrastructureFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\EditInfrastructureFrom.Designer.cs">
+      <DependentUpon>EditInfrastructureFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditManufacturerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Dictionary\EditManufacturerForm.Designer.cs">
+      <DependentUpon>EditManufacturerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditPlatformForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditPlatformForm.Designer.cs">
+      <DependentUpon>EditPlatformForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditRAMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditRAMForm.Designer.cs">
+      <DependentUpon>EditRAMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditStorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\EditStorageForm.Designer.cs">
+      <DependentUpon>EditStorageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\PlatformInterfacesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\PlatformInterfacesForm.Designer.cs">
+      <DependentUpon>PlatformInterfacesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\SANs\EditSANForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\SANs\EditSANForm.Designer.cs">
+      <DependentUpon>EditSANForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Servers\EditServerConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Servers\EditServerConfigurationForm.Designer.cs">
+      <DependentUpon>EditServerConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employee\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employee\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Common\SAN_ConditionConstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Common\SAN_ConditionConstructorForm.Designer.cs">
+      <DependentUpon>SAN_ConditionConstructorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectCPUForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectCPUForm.Designer.cs">
+      <DependentUpon>SelectCPUForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectPlatformForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectPlatformForm.Designer.cs">
+      <DependentUpon>SelectPlatformForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectRAMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectRAMForm.Designer.cs">
+      <DependentUpon>SelectRAMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectStorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Parts\SelectStorageForm.Designer.cs">
+      <DependentUpon>SelectStorageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Common\ServersConditionConstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Infrastructure\Common\ServersConditionConstructorForm.Designer.cs">
+      <DependentUpon>ServersConditionConstructorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShowUserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowUserProfileForm.Designer.cs">
+      <DependentUpon>ShowUserProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditServiceTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditServiceTypeForm.Designer.cs">
+      <DependentUpon>EditServiceTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareForm.Designer.cs">
+      <DependentUpon>EditSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareTypeForm.Designer.cs">
+      <DependentUpon>EditSoftwareTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\EditPlatformForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\EditPlatformForm.Designer.cs">
+      <DependentUpon>EditPlatformForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\EditServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\EditServiceForm.Designer.cs">
+      <DependentUpon>EditServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\ListOfServicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\ListOfServicesForm.Designer.cs">
+      <DependentUpon>ListOfServicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectSANForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectSANForm.Designer.cs">
+      <DependentUpon>SelectSANForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectSoftwareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectSoftwareForm.Designer.cs">
+      <DependentUpon>SelectSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectServerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Services\Parts\SelectServerForm.Designer.cs">
+      <DependentUpon>SelectServerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\SysAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\SysAdminForm.Designer.cs">
+      <DependentUpon>SysAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\EditUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\EditUsersForm.Designer.cs">
+      <DependentUpon>EditUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\EditUsrPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\EditUsrPositionForm.Designer.cs">
+      <DependentUpon>EditUsrPositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\UserConditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\UserConditionForm.Designer.cs">
+      <DependentUpon>UserConditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\UserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SysAdmin\Users\UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Template.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Template.Designer.cs">
+      <DependentUpon>Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\Director\DirectorForm.resx">
+      <DependentUpon>DirectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Director\EditIdleItemForm.resx">
+      <DependentUpon>EditIdleItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Director\ServiceRequestTreatment.resx">
+      <DependentUpon>ServiceRequestTreatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Director\StaffDistributonForm.resx">
+      <DependentUpon>StaffDistributonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employee\SubscribeServicesForm.resx">
+      <DependentUpon>SubscribeServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingForm.resx">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\EquipmentIdle\EditScheduleItem.resx">
+      <DependentUpon>EditScheduleItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\EquipmentIdle\EquipmentIdleMenu.resx">
+      <DependentUpon>EquipmentIdleMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\EquipmentIdle\PlanningSchedule.resx">
+      <DependentUpon>PlanningSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\EquipmentIdle\RegisterNewIdle.resx">
+      <DependentUpon>RegisterNewIdle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Dictionary\EditRAMTypeForm.resx">
+      <DependentUpon>EditRAMTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Dictionary\EditStorageInterfaceForm.resx">
+      <DependentUpon>EditStorageInterfaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\EditCPUForm.resx">
+      <DependentUpon>EditCPUForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Dictionary\EditCPUSocketForm.resx">
+      <DependentUpon>EditCPUSocketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\EditInfrastructureFrom.resx">
+      <DependentUpon>EditInfrastructureFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Dictionary\EditManufacturerForm.resx">
+      <DependentUpon>EditManufacturerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\EditPlatformForm.resx">
+      <DependentUpon>EditPlatformForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\EditRAMForm.resx">
+      <DependentUpon>EditRAMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\EditStorageForm.resx">
+      <DependentUpon>EditStorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\PlatformInterfacesForm.resx">
+      <DependentUpon>PlatformInterfacesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\SANs\EditSANForm.resx">
+      <DependentUpon>EditSANForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Servers\EditServerConfigurationForm.resx">
+      <DependentUpon>EditServerConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employee\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Common\SAN_ConditionConstructorForm.resx">
+      <DependentUpon>SAN_ConditionConstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\SelectCPUForm.resx">
+      <DependentUpon>SelectCPUForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\SelectPlatformForm.resx">
+      <DependentUpon>SelectPlatformForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\SelectRAMForm.resx">
+      <DependentUpon>SelectRAMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Parts\SelectStorageForm.resx">
+      <DependentUpon>SelectStorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Infrastructure\Common\ServersConditionConstructorForm.resx">
+      <DependentUpon>ServersConditionConstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowUserProfileForm.resx">
+      <DependentUpon>ShowUserProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Dictionary\EditServiceTypeForm.resx">
+      <DependentUpon>EditServiceTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareForm.resx">
+      <DependentUpon>EditSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Dictionary\EditSoftwareTypeForm.resx">
+      <DependentUpon>EditSoftwareTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\EditPlatformForm.resx">
+      <DependentUpon>EditPlatformForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\EditServiceForm.resx">
+      <DependentUpon>EditServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\ListOfServicesForm.resx">
+      <DependentUpon>ListOfServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Parts\SelectSANForm.resx">
+      <DependentUpon>SelectSANForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Parts\SelectSoftwareForm.resx">
+      <DependentUpon>SelectSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Services\Parts\SelectServerForm.resx">
+      <DependentUpon>SelectServerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\SysAdminForm.resx">
+      <DependentUpon>SysAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Users\EditUsersForm.resx">
+      <DependentUpon>EditUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Users\EditUsrPositionForm.resx">
+      <DependentUpon>EditUsrPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Users\UserConditionForm.resx">
+      <DependentUpon>UserConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SysAdmin\Users\UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Template.resx">
+      <DependentUpon>Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\ServiceCostReport.rdlc" />
+    <EmbeddedResource Include="Reports\ServiceIdleReport.rdlc" />
+    <EmbeddedResource Include="Reports\ServiceRequestReport.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MTF_Services.Model.CPU.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.CpuSocket.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.IdleReason.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.IdleType.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Manufacturer.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.PaasType.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Platform.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Position.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.RAM.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.RamType.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.RightsLevel.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.SAN.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Server.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Service.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.ServiceIdle.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.ServiceType.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.SoftType.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Software.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Strorage.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.StrorageInterface.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.User.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.AvalibleInterface.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ConfigurationPartsInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.CPUInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.CPUSocketInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.EquipmentState.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.IdleItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.InstalledRamOnServer.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.InstalledStorageOnSAN.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.InstalledStorageOnServer.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.PaasInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.PlatformInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.PlatformServerItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.PlatformServiceUser.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.PlatfromSANItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.RAMInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SANIdleItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SANPaasInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SANPartsInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SANPlatformInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SAN_Info.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ScheduleItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServerIdleItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServerInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServerPaasInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServiceDetailInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServiceIdleItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServiceInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServicePartsInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServiceRequestItem.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.ServiceSoftInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.SoftwareInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.StorageInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.UserInfo.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.Model.Views.UserService.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.WinForms.Data.CostIdleParams.datasource" />
+    <None Include="Properties\DataSources\MTF_Services.WinForms.Data.ServiceIdleParams.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MTF_Services.DataAccess\MTF_Services.DataAccess.csproj">
+      <Project>{84c7231c-4da3-4603-972a-8d16957595d1}</Project>
+      <Name>MTF_Services.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MTF_Services.Model\MTF_Services.Model.csproj">
+      <Project>{4508bad6-3945-41b4-aff1-f5b64855c26b}</Project>
+      <Name>MTF_Services.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_edit-paste_118923.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beos_query.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_css.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hp_hdd_dock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\memory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cpu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motherboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scheduled_tasks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tasks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome_panel_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printers_and_faxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <None Include="Resources\transfer_up_down.png" />
+    <None Include="Resources\desable_server.png" />
+    <None Include="Resources\add_server.png" />
+    <None Include="Resources\enable_server.png" />
+    <None Include="Resources\data_delete.png" />
+    <None Include="Resources\data_upload.png" />
+    <None Include="Resources\data_add.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\sign_in.png" />
+    <None Include="Resources\application_exit.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\dollars_folder.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

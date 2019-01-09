@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4508BAD6-3945-41B4-AFF1-F5B64855C26B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTF_Services.Model</RootNamespace>
+    <AssemblyName>MTF_Services.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CPU.cs" />
+    <Compile Include="CpuSocket.cs" />
+    <Compile Include="IdleReason.cs" />
+    <Compile Include="IdleType.cs" />
+    <Compile Include="Manufacturer.cs" />
+    <Compile Include="PaasType.cs" />
+    <Compile Include="Platform.cs" />
+    <Compile Include="Platform_StorageInt.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM.cs" />
+    <Compile Include="RamType.cs" />
+    <Compile Include="RightsLevel.cs" />
+    <Compile Include="SAN.cs" />
+    <Compile Include="SAN_MaintenanceShedule.cs" />
+    <Compile Include="SAN_Storage.cs" />
+    <Compile Include="SAN_StorageInt.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Server_MaintenanceShedule.cs" />
+    <Compile Include="Server_RAM.cs" />
+    <Compile Include="Server_Storage.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="ServiceIdle.cs" />
+    <Compile Include="ServiceState.cs" />
+    <Compile Include="ServiceType.cs" />
+    <Compile Include="SoftType.cs" />
+    <Compile Include="Software.cs" />
+    <Compile Include="Strorage.cs" />
+    <Compile Include="StrorageInterface.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Views\AvalibleInterface.cs" />
+    <Compile Include="Views\ConfigurationPartsInfo.cs" />
+    <Compile Include="Views\CPUInfo.cs" />
+    <Compile Include="Views\CPUSocketInfo.cs" />
+    <Compile Include="Views\EquipmentState.cs" />
+    <Compile Include="Views\IdleItem.cs" />
+    <Compile Include="Views\InstalledRamOnServer.cs" />
+    <Compile Include="Views\InstalledStorageOnSAN.cs" />
+    <Compile Include="Views\InstalledStorageOnServer.cs" />
+    <Compile Include="Views\PaasInfo.cs" />
+    <Compile Include="Views\PlatformInfo.cs" />
+    <Compile Include="Views\PlatformServerItem.cs" />
+    <Compile Include="Views\PlatformServiceUser.cs" />
+    <Compile Include="Views\PlatfromSANItem.cs" />
+    <Compile Include="Views\RAMInfo.cs" />
+    <Compile Include="Views\SANIdleItem.cs" />
+    <Compile Include="Views\SANPaasInfo.cs" />
+    <Compile Include="Views\SANPartsInfo.cs" />
+    <Compile Include="Views\SANPlatformInfo.cs" />
+    <Compile Include="Views\SAN_Info.cs" />
+    <Compile Include="Views\ScheduleItem.cs" />
+    <Compile Include="Views\ServerIdleItem.cs" />
+    <Compile Include="Views\ServerInfo.cs" />
+    <Compile Include="Views\ServerPaasInfo.cs" />
+    <Compile Include="Views\ServerPlarformInfo.cs" />
+    <Compile Include="Views\ServiceDetailInfo.cs" />
+    <Compile Include="Views\ServiceIdleItem.cs" />
+    <Compile Include="Views\ServiceInfo.cs" />
+    <Compile Include="Views\ServicePartsInfo.cs" />
+    <Compile Include="Views\ServiceRequestItem.cs" />
+    <Compile Include="Views\ServiceSoftInfo.cs" />
+    <Compile Include="Views\SoftwareInfo.cs" />
+    <Compile Include="Views\StorageInfo.cs" />
+    <Compile Include="Views\UserInfo.cs" />
+    <Compile Include="Views\UserService.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
